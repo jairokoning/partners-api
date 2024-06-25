@@ -9,6 +9,16 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
+}
+
+model Event {
+  id          String   @id @default(uuid())
+  name        String
+  description String
+  date        DateTime
+  price       Float
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
