@@ -27,7 +27,7 @@ export class EventsService {
     });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} event`;
+  async remove(id: string) {
+    await this.prismaService.event.delete({ where: { id } });
   }
 }
