@@ -7,5 +7,15 @@ Content-Type: application/json
   "name": "New Event",
   "description": "This is a new event",
   "date": "2022-01-05T19:00:00",
-  "price": "125.00"
+  "price": 125.00
 }
+
+###
+# EVENTS | LIST ALL
+GET http://localhost:3000/events
+Content-Type: application/json
+
+###
+# EVENTS | GET BY ID
+GET http://localhost:3000/events/bab6117a-0051-4457-ac4f-096ffdc3490c
+Content-Type: application/json
