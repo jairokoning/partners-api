@@ -20,8 +20,11 @@ export class EventsService {
     return this.prismaService.event.findUnique({ where: { id } });
   }
 
-  update(id: number, updateEventDto: UpdateEventDto) {
-    return `This action updates a #${id} event`;
+  async update(id: string, updateEventDto: UpdateEventDto) {
+    await this.prismaService.event.update({
+      data: { ...updateEventDto, date: new Date(updateEventDto.date) },
+      where: { id },
+    });
   }
 
   remove(id: number) {
