@@ -1,14 +1,18 @@
 ###
 # EVENTS | CREATE NEW
+# @name createEvent
 POST http://localhost:3000/events
 Content-Type: application/json
 
 {
-  "name": "New Event",
-  "description": "This is a new event",
+  "name": "New Event for delete test",
+  "description": "This is a new event to delete test",
   "date": "2022-01-05T19:00:00",
   "price": 125.00
 }
+
+###
+@eventId = {{ createEvent.response.body.id }}
 
 ###
 # EVENTS | LIST ALL
@@ -30,3 +34,26 @@ Content-Type: application/json
   "date": "2022-01-05T19:00:00",  
   "price": 99.90
 }
+
+###
+# EVENTS | DELETE
+DELETE http://localhost:3000/events/f8e33da4-d27d-41a3-899c-00df629f62a0
+Content-Type: application/json
+
+
+###
+@selectedEventId = bab6117a-0051-4457-ac4f-096ffdc3490c
+
+###
+# SPOTS | CREATE
+POST http://localhost:3000/events/{{selectedEventId}}/spots
+Content-Type: application/json
+
+{
+  "name": "A2"
+}
+
+###
+# SPOTS | LIST
+GET http://localhost:3000/events/{{selectedEventId}}/spots
+Content-Type: application/json
