@@ -42,7 +42,7 @@ Content-Type: application/json
 
 
 ###
-@selectedEventId = bab6117a-0051-4457-ac4f-096ffdc3490c
+@selectedEventId = 9528e5f0-bb3e-465d-802c-ce1f87d4c516
 
 ###
 # SPOTS | CREATE
@@ -50,7 +50,7 @@ POST http://localhost:3000/events/{{selectedEventId}}/spots
 Content-Type: application/json
 
 {
-  "name": "A2"
+  "name": "A1"
 }
 
 ###
