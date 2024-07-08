@@ -50,10 +50,21 @@ POST http://localhost:3000/events/{{selectedEventId}}/spots
 Content-Type: application/json
 
 {
-  "name": "A1"
+  "name": "B6"
 }
 
 ###
 # SPOTS | LIST
 GET http://localhost:3000/events/{{selectedEventId}}/spots
 Content-Type: application/json
+
+###
+# EVENTS | RESERVE
+POST http://localhost:3000/events/{{selectedEventId}}/reserve
+Content-Type: application/json
+
+{
+  "spots": ["B5", "B6"],
+  "ticket_kind": "full",
+  "email": "john.doe@example.com"
+}
