@@ -1,0 +1,70 @@
+###
+@baseUrl = http://localhost:3001
+
+###
+# EVENTS | CREATE NEW
+# @name createEvent
+POST http://localhost:3001/events
+Content-Type: application/json
+
+{
+  "name": "Ubuntu Summit",
+  "description": "Event about Ubuntu Linux offered by Canonical",
+  "date": "2024-10-05T10:00:00",
+  "price": 299
+}
+
+###
+# EVENTS | LIST ALL
+GET {{baseUrl}}/events
+Content-Type: application/json
+
+###
+# EVENTS | GET BY ID
+GET {{baseUrl}}/events/5a5575de-c03d-44ee-837a-b10519ea1272
+Content-Type: application/json
+
+###
+# EVENTS | UPDATE
+PATCH  {{baseUrl}}/events/bab6117a-0051-4457-ac4f-096ffdc3490c
+Content-Type: application/json
+
+{
+  "description": "This is a new great event",
+  "date": "2022-01-05T19:00:00",  
+  "price": 99.90
+}
+
+###
+# EVENTS | DELETE
+DELETE {{baseUrl}}/events/f8e33da4-d27d-41a3-899c-00df629f62a0
+Content-Type: application/json
+
+
+###
+@selectedEventId = 5a5575de-c03d-44ee-837a-b10519ea1272
+
+###
+# SPOTS | CREATE
+POST {{baseUrl}}/events/{{selectedEventId}}/spots
+Content-Type: application/json
+
+{
+  "name": "AA002"
+}
+
+###
+# SPOTS | LIST
+GET {{baseUrl}}/events/{{selectedEventId}}/spots
+Content-Type: application/json
+
+###
+# EVENTS | RESERVE
+POST {{baseUrl}}/events/{{selectedEventId}}/reserve
+Content-Type: application/json
+
+{
+  "spots": ["AA002"],
+  "ticket_kind": "full",
+  "email": "john.doe@example.com"
+}

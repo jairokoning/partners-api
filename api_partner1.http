@@ -5,10 +5,10 @@ POST http://localhost:3000/events
 Content-Type: application/json
 
 {
-  "name": "New Event for delete test",
-  "description": "This is a new event to delete test",
-  "date": "2022-01-05T19:00:00",
-  "price": 125.00
+  "name": "New Event 2",
+  "description": "This is a new event",
+  "date": "2022-03-11T18:00:00",
+  "price": 45
 }
 
 ###
@@ -42,7 +42,7 @@ Content-Type: application/json
 
 
 ###
-@selectedEventId = 9528e5f0-bb3e-465d-802c-ce1f87d4c516
+@selectedEventId = 6e0fb2dd-2cbf-4cda-b497-87391a391e83
 
 ###
 # SPOTS | CREATE
@@ -50,7 +50,7 @@ POST http://localhost:3000/events/{{selectedEventId}}/spots
 Content-Type: application/json
 
 {
-  "name": "B6"
+  "name": "A4"
 }
 
 ###
@@ -64,7 +64,7 @@ POST http://localhost:3000/events/{{selectedEventId}}/reserve
 Content-Type: application/json
 
 {
-  "spots": ["B5", "B6"],
+  "spots": ["A1", "A2"],
   "ticket_kind": "full",
   "email": "john.doe@example.com"
 }
