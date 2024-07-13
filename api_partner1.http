@@ -1,14 +1,17 @@
 ###
+@token = 4cfB8O0St3X5zDXLLehYPH8JoiRtKyq2ezsu7LVelrssmeM4UsEvb6Ivf45fPkhc
+
+###
 # EVENTS | CREATE NEW
 # @name createEvent
 POST http://localhost:3000/events
 Content-Type: application/json
 
 {
-  "name": "New Event 2",
-  "description": "This is a new event",
-  "date": "2022-03-11T18:00:00",
-  "price": 45
+  "name": "New Event 5",
+  "description": "This is the new event 5",
+  "date": "2022-07-22T00:00:00",
+  "price": 270
 }
 
 ###
@@ -37,7 +40,7 @@ Content-Type: application/json
 
 ###
 # EVENTS | DELETE
-DELETE http://localhost:3000/events/f8e33da4-d27d-41a3-899c-00df629f62a0
+DELETE http://localhost:3000/events/ca2efba1-f591-403b-8a4c-a340d15621d1
 Content-Type: application/json
 
 
@@ -62,6 +65,7 @@ Content-Type: application/json
 # EVENTS | RESERVE
 POST http://localhost:3000/events/{{selectedEventId}}/reserve
 Content-Type: application/json
+X-Api-Token: {{token}}
 
 {
   "spots": ["A1", "A2"],

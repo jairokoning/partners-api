@@ -1,5 +1,6 @@
 ###
 @baseUrl = http://localhost:3001
+@token = iw0yuVBNbkoSDYqLFedoHnukYqZlmtN60WI
 
 ###
 # EVENTS | CREATE NEW
@@ -62,6 +63,7 @@ Content-Type: application/json
 # EVENTS | RESERVE
 POST {{baseUrl}}/events/{{selectedEventId}}/reserve
 Content-Type: application/json
+X-Api-Token: {{token}}
 
 {
   "spots": ["AA002"],
